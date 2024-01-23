@@ -26,7 +26,7 @@ public class Menu : MonoBehaviour
     public void OnClickMultiPlayer()
     {
         //Debug.Log("Loading multiplayer game");
-        SceneManager.LoadScene("Multiplayer_Launcher");
+        SceneManager.LoadScene("Multiplayer_Lobby 1");
     }
 
 }

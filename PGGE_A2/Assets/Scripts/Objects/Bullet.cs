@@ -10,24 +10,25 @@ public class Bullet : MonoBehaviour
         StartCoroutine(Coroutine_Destroy(10.0f));
     }
 
-    void Update()
-    {
-    }
-
     IEnumerator Coroutine_Destroy(float duration)
     {
         yield return new WaitForSeconds(duration);
         Destroy(gameObject);
     }
 
+    
     private void OnCollisionEnter(Collision collision)
     {
+        //when the bullet collides with an object
+        //it calls the object's IDamageable interface
+        //and calls the TakeDamage() method which debug out "Box: I am hit by a bullet!"
         IDamageable obj = collision.gameObject.GetComponent<IDamageable>();
         if (obj != null)
         {
             obj.TakeDamage();
         }
 
+        //then it destroys this bullet
         StartCoroutine(Coroutine_Destroy(0.1f));
     }
 }
