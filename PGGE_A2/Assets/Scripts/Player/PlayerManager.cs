@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerManager : MonoBehaviourPunCallbacks
 {
     public string mPlayerPrefabName;
+    public string mCarl = "Prefabs/CarlWheezer";
     public PlayerSpawnPoints mSpawnPoints;
 
     [HideInInspector]
@@ -17,7 +18,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
     private void Start()
     {
         Transform randomSpawnTransform = mSpawnPoints.GetSpawnPoint();
-        mPlayerGameObject = PhotonNetwork.Instantiate(mPlayerPrefabName,
+        mPlayerGameObject = PhotonNetwork.Instantiate(mCarl,
             randomSpawnTransform.position,
             randomSpawnTransform.rotation,
             0);
@@ -27,7 +28,8 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         //mPlayerGameObject.GetComponent<PlayerMovement>().mFollowCameraForward = false;
         mThirdPersonCamera.mPlayer = mPlayerGameObject.transform;
         mThirdPersonCamera.mDamping = 20.0f;
-        mThirdPersonCamera.mCameraType = CameraType.Follow_Track_Pos_Rot;
+        mThirdPersonCamera.mRotationSpeed = 1.5f;
+        mThirdPersonCamera.mCameraType = CameraType.Follow_Independent;
     }
 
     public void LeaveRoom()

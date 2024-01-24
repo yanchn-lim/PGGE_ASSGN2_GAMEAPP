@@ -177,6 +177,7 @@ public class Player_Multiplayer : MonoBehaviour
     {
         if (!mPhotonView.IsMine) return;
 
+       
         mPlayerMovement.HandleInputs();
         mPlayerMovement.Move();
     }

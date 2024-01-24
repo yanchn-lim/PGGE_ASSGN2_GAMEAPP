@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     private bool crouch = false;
     public float mGravity = -30.0f;
     public float mJumpHeight = 1.0f;
+    public bool isMoving = false;
 
     private Vector3 mVelocity = new Vector3(0.0f, 0.0f, 0.0f);
 
@@ -84,6 +85,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (crouch) return;
 
+        isMoving = hInput != 0 || vInput != 0;
         // We shall apply movement to the game object here.
         if (mAnimator == null) return;
         if (mFollowCameraForward)
