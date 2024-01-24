@@ -22,6 +22,7 @@ public class Menu : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
+    //get the singleton audioplayer to play the sound
     public void ClickSound(int i)
     {
         AudioPlayer.Instance.PlayClickSound(i);

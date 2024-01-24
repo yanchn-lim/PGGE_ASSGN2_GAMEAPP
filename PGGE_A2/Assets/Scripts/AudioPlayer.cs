@@ -8,6 +8,9 @@ public class AudioPlayer : Singleton<AudioPlayer>
     //audio player inherits from the singleton pattern
     //so there can only be one audioplayer in the game
 
+    //chose to do this because it can persist across the scenes
+    //preventing the audio from being cutout when the scene changes
+
     AudioSource source;
     public AudioClip[] click;
 
