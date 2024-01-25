@@ -42,8 +42,6 @@ public class ThirdPersonCamera : MonoBehaviour
         CameraConstants.MinPitch = mMinPitch;
         CameraConstants.MaxPitch = mMaxPitch;
         CameraConstants.RotationSpeed = mRotationSpeed;
-
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void Init()

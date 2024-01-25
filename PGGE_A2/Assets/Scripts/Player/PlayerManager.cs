@@ -19,13 +19,19 @@ public class PlayerManager : MonoBehaviourPunCallbacks,IPunInstantiateMagicCallb
 
     private void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        SpawnCharacter();
+    }
+
+    void SpawnCharacter()
+    {
         Transform randomSpawnTransform = mSpawnPoints.GetSpawnPoint();
         mPlayerGameObject = PhotonNetwork.Instantiate(GameConstant.Character,
             randomSpawnTransform.position,
             randomSpawnTransform.rotation,
             0);
 
-
+        
         mThirdPersonCamera = Camera.main.gameObject.AddComponent<ThirdPersonCamera>();
 
         //mPlayerGameObject.GetComponent<PlayerMovement>().mFollowCameraForward = false;
@@ -35,7 +41,16 @@ public class PlayerManager : MonoBehaviourPunCallbacks,IPunInstantiateMagicCallb
         mThirdPersonCamera.mCameraType = CameraType.Follow_Independent;
     }
 
-    
+    public void ChangeCharacter()
+    {
+        //destroy the associated player objects
+        Destroy(mThirdPersonCamera);
+        PhotonNetwork.Destroy(mPlayerGameObject);
+
+        //respawn the desired character
+        SpawnCharacter();
+    }
+
 
     public void LeaveRoom()
     {

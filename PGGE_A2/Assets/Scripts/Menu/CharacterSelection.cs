@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using PGGE;
+using TMPro;
 
 public class CharacterSelection : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class CharacterSelection : MonoBehaviour
         currModel = Instantiate(modelPrefab[0]);
         currIndex = 0;
         GameConstant.Character = pathReference[0];
+        GameConstant.CurrentIndex = 0;
     }
 
     public void ChangeModel(int i)
@@ -50,6 +52,7 @@ public class CharacterSelection : MonoBehaviour
         Destroy(currModel);
 
         currModel = Instantiate(modelPrefab[index]);
+        GameConstant.CurrentIndex = index;
 
         //setting the path reference
         GameConstant.Character = pathReference[index];

@@ -18,6 +18,8 @@ namespace PGGE
     {
         public static Dictionary<int, string> ModelReference { get; set; }
         public static string Character { get; set; }
+
+        public static int CurrentIndex { get; set; }
         
     }
 }
