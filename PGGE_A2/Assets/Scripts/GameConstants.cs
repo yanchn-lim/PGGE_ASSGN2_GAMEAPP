@@ -13,4 +13,11 @@ namespace PGGE
         public static float MinPitch { get; set; }
         public static float MaxPitch { get; set; }
     }
+
+    public static class GameConstant
+    {
+        public static Dictionary<int, string> ModelReference { get; set; }
+        public static string Character { get; set; }
+        
+    }
 }

@@ -32,13 +32,7 @@ namespace PGGE
             // Start is called before the first frame update
             void Start()
             {
-                mConnectionProgress.SetActive(false);
-
-                if (!PhotonNetwork.IsConnected)
-                {
-                    isConnecting = PhotonNetwork.ConnectUsingSettings();
-                    PhotonNetwork.GameVersion = gameVersion;
-                }                
+                mConnectionProgress.SetActive(false);              
             }
 
             public override void OnCreateRoomFailed(short returnCode, string message)
@@ -47,7 +41,6 @@ namespace PGGE
                 isConnecting = false;
             }
 
-            #region Join Room
             public override void OnJoinRoomFailed(short returnCode, string message)
             {
                 Debug.Log("Failed to join room");
@@ -70,7 +63,6 @@ namespace PGGE
                         MaxPlayers = maxPlayersPerRoom
                     });
             }
-            #endregion
 
             public void Connect()
             {

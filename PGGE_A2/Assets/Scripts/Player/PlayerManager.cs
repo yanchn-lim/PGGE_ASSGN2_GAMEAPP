@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Photon;
+using PGGE;
 
 public class PlayerManager : MonoBehaviourPunCallbacks,IPunInstantiateMagicCallback
 {
-    public string mPlayerPrefabName;
+    public string mPlayerPrefabName = "Prefabs/SciFiPlayer_Networked";
     public string mCarl = "Prefabs/CarlWheezer";
     public PlayerSpawnPoints mSpawnPoints;
 
@@ -19,7 +20,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks,IPunInstantiateMagicCallb
     private void Start()
     {
         Transform randomSpawnTransform = mSpawnPoints.GetSpawnPoint();
-        mPlayerGameObject = PhotonNetwork.Instantiate(mCarl,
+        mPlayerGameObject = PhotonNetwork.Instantiate(GameConstant.Character,
             randomSpawnTransform.position,
             randomSpawnTransform.rotation,
             0);

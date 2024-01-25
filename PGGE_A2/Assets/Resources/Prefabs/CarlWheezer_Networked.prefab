@@ -324,7 +324,7 @@ GameObject:
   - component: {fileID: 2446606170439017882}
   - component: {fileID: -512757744428457748}
   m_Layer: 8
-  m_Name: CarlWheezer
+  m_Name: CarlWheezer_Networked
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
