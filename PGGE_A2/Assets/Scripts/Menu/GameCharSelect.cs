@@ -26,6 +26,8 @@ public class PauseHandler : MonoBehaviour
 
     private void Update()
     {
+        //opens up the pause menu and unlocks the cursor
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             pauseMenu.SetActive(GameApp.GamePaused);
@@ -60,7 +62,7 @@ public class PauseHandler : MonoBehaviour
             return;
         }
 
-
+        //renames the text accordingly to the character's name
         currIndex += i;
         text.text = charName[currIndex];
         GameConstant.Character = pathReference[currIndex];

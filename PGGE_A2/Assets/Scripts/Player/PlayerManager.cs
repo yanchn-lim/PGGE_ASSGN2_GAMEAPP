@@ -34,7 +34,6 @@ public class PlayerManager : MonoBehaviourPunCallbacks,IPunInstantiateMagicCallb
         
         mThirdPersonCamera = Camera.main.gameObject.AddComponent<ThirdPersonCamera>();
 
-        //mPlayerGameObject.GetComponent<PlayerMovement>().mFollowCameraForward = false;
         mThirdPersonCamera.mPlayer = mPlayerGameObject.transform;
         mThirdPersonCamera.mDamping = 20.0f;
         mThirdPersonCamera.mRotationSpeed = 1.5f;
