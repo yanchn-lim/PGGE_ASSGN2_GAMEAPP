@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Photon;
 
-public class PlayerManager : MonoBehaviourPunCallbacks
+public class PlayerManager : MonoBehaviourPunCallbacks,IPunInstantiateMagicCallback
 {
     public string mPlayerPrefabName;
     public string mCarl = "Prefabs/CarlWheezer";
@@ -23,6 +24,7 @@ public class PlayerManager : MonoBehaviourPunCallbacks
             randomSpawnTransform.rotation,
             0);
 
+
         mThirdPersonCamera = Camera.main.gameObject.AddComponent<ThirdPersonCamera>();
 
         //mPlayerGameObject.GetComponent<PlayerMovement>().mFollowCameraForward = false;
@@ -31,6 +33,8 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         mThirdPersonCamera.mRotationSpeed = 1.5f;
         mThirdPersonCamera.mCameraType = CameraType.Follow_Independent;
     }
+
+    
 
     public void LeaveRoom()
     {
@@ -44,4 +48,8 @@ public class PlayerManager : MonoBehaviourPunCallbacks
         SceneManager.LoadScene("Menu");
     }
 
+    public void OnPhotonInstantiate(PhotonMessageInfo info)
+    {
+        info.Sender.TagObject = mPlayerGameObject;
+    }
 }
